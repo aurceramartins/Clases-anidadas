@@ -1,4 +1,3 @@
-
 package clasesanidadas;
 
 /**
@@ -8,8 +7,8 @@ package clasesanidadas;
 public class ClasesAnidadas {
 
     public static void main(String[] args) {
-  Ventana vent=new Ventana();
-  vent.amosarVentana();
+        Ventana vent = new Ventana();
+        vent.amosarVentana();
     }
-    
+
 }
