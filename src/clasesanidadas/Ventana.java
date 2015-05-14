@@ -26,9 +26,9 @@ public class Ventana {
         marco = new JFrame("   ventanas anidadas   ");
         panel = new JPanel();
         boton = new JButton("Boton");
-        botonR=new JButton("ROjo");
-        botonG=new JButton("Verde");
-        botonB=new JButton("Azul");
+        botonR = new JButton("ROjo");
+        botonG = new JButton("Verde");
+        botonB = new JButton("Azul");
         marco.setSize(500, 500);
         panel.setSize(500, 500);
         boton.setSize(100, 200);
@@ -36,19 +36,29 @@ public class Ventana {
         panel.add(botonB);
         panel.add(botonR);
         panel.add(botonG);
-        
+
         panel.add(boton);
         marco.add(panel);
+        //Con clases anidadas
         boton.addActionListener(new Event());
         botonR.addActionListener(new Erojo());
         botonB.addActionListener(new Eazul());
-        botonG.addActionListener(new Everde());
-        marco.add(panel);
+        //Con clase anonima
+        botonG.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
 
-        
-        
-        
-       
+                panel.setBackground(Color.GREEN);
+            }
+
+        });
+        botonG.addActionListener(new java.awt.event.ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel.setBackground(Color.red);
+            }
+        });
+        marco.add(panel);
         marco.setVisible(true);
         marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -71,7 +81,8 @@ public class Ventana {
         }
 
     }
-    class Erojo implements ActionListener{
+
+    class Erojo implements ActionListener {
 
         public Erojo() {
             panel.setBackground(Color.RED);
@@ -79,12 +90,13 @@ public class Ventana {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            Erojo roj=new Erojo();
-                    
+            Erojo roj = new Erojo();
+
         }
-        
+
     }
-    class Eazul implements ActionListener{
+
+    class Eazul implements ActionListener {
 
         public Eazul() {
             panel.setBackground(Color.BLUE);
@@ -92,22 +104,10 @@ public class Ventana {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            Eazul blu=new Eazul();
-                    
-        }
-        
-    }
-    class Everde implements ActionListener{
+            Eazul blu = new Eazul();
 
-        public Everde() {
-            panel.setBackground(Color.GREEN);
         }
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            Everde green=new Everde();
-                    
-        }
-        
     }
+
 }
